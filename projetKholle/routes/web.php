@@ -41,7 +41,7 @@ Route::post('/mesCreneauxEnseignants', [App\Http\Controllers\MesCreneauxProfCont
 Route::get('/modificationCreneaux', [\App\Http\Controllers\ModifCreneauController::class, 'index']);
 Route::post('/modificationCreneaux', [\App\Http\Controllers\ModifCreneauController::class, 'lookCreneaux'])->name("regarde");
 Route::post('/modificationCreneauxForm', [\App\Http\Controllers\ModifCreneauController::class, 'modifCreneauForm'])->name("modifCreneauForm");
-
+Route::get('/modificationCreneauxForm', [\App\Http\Controllers\ModifCreneauController::class, 'modifCreneauFormAff']);
 
 Route::get('/adminSearchUser', function (){
     return view('adminProfil');
