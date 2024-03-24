@@ -68,8 +68,8 @@
         .middle{
             display: flex;
             justify-content: center;
+		
 		}
-
     </style>
 </head>
 <body class="main-container">
@@ -77,16 +77,16 @@
         <nav>
             <ul>
                 <div class="middle">
-				    <li><a href="/listeCreneauxEtudiant">Voir la liste de créneaux</a></li>
-				    <li><a href="/mesCreneauxEtudiant">Voir mes créneaux</a></li>
+				    <li><a href="ajouterCreneau">Créer un nouveau créneau</a></li>
+				    <li><a href="modificationCreneaux">Modifier un créneau</a></li>
+                    <li><a href="adminSearchUser">Modifier un utilisateur</a>
 			    </div>
                 <li><a href="#">Mon profil</a></li>
                 <li><a href="/logout">Déconnexion</a></li>
             </ul>
         </nav>
     </header>
-    <form action="/modifMdp" method="get">
-        @csrf
+    <form action="#" method="post">
         <label for="labelPrenom">Prénom :</label><br>
         <input type="text" id="prenom" name="prenom" value="{{ Auth::user()['prenom'] }}"><br>
         <label for="labelNom">Nom :</label><br>

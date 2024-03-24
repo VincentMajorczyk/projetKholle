@@ -78,6 +78,7 @@
 
         form input[type="number"]{
             width: 300px;
+            height: 20px;
             margin-top: 10px;
             margin: 0 auto;
         }
@@ -93,7 +94,7 @@
             margin-bottom: 50px;
         }
 
-        tr.1{
+        tr{
             margin-bottom: 50px;
         }
 		.middle{
@@ -101,6 +102,11 @@
             justify-content: center;
 		
 		}
+        form select {
+            padding: 4px;
+            padding-right: 200px;
+        }
+
     </style>
 </head>
 <body>
@@ -110,38 +116,67 @@
             <div class="middle">
 				<li><a href="#">Créer un nouveau créneau</a></li>
 				<li><a href="/modificationCreneaux">Modifier un créneau</a></li>
+                <li><a href="/adminSearchUser">Modifier un utilisateur</a>
 			</div>
                 <li><a href="/profil">Mon profil</a></li>
-                <li><a href="#">Déconnexion</a></li>
+                <li><a href="/logout">Déconnexion</a></li>
             </ul>
 			
 
         </nav>
     </header>
-    <form>
+    <form method="post">
+        @csrf
             <table class="input-table">
-                <tr class="1">
+                <tr>
                     <th><label for="nomKholeur">Nom du Kholleur :</label></th>
-                    <td><input type="text" id="nomKholeur" ></td>
+                    <td><select name="nomKholler" id="nomKholler">
+                    @foreach($profs as $prof)
+                    <option value='{{ $prof->id }}'>{{ $prof->nom }} {{ $prof->prenom }}</option>
+                    @endforeach
+                    </select></td>
+                </tr>
+                <tr>
+                    <th><label for="matiere">Matière :</label></th>
+                    <td><select name="matiere" id="matiere">
+                    @foreach($matieres as $matieres)
+                    <option value='{{ $matieres->id }}'>{{ $matieres->nommatiere }}</option>
+                    @endforeach
+                    </select></td>
                 </tr>
                 <tr>
                     <th><label for="salle">Salle :</label></th>
-                    <td><input type="text" id="salle" ></td>
+                    <td><select name="salle" id="salle">
+                    @foreach($salles as $salle)
+                    <option value='{{ $salle->id }}'>{{ $salle->nomsalle }}</option>
+                    @endforeach
+                    </select></td>
                 </tr>
                 <tr>
-                    <th><label for="date">Date :</label></th>
-                    <td><input type="text" id="date" ></td>
+                    <th><label for="classe">Classe :</label></th>
+                    <td><select name="classe" id="classe">
+                    @foreach($classes as $classe)
+                    <option value='{{ $classe->id }}'>{{ $classe->nomclasse }}</option>
+                    @endforeach
+                    </select></td>
                 </tr>
                 <tr>
-                    <th><label for="heure">Heure :</label></th>
-                    <td><input type="text" id="heure" ></td>
+                    <th><label for="datecreneau">Date :</label></th>
+                    <td><input name="datecreneau" type="text" id="datecreneau" ></td>
+                </tr>
+                <tr>
+                    <th><label for="heurecreneau">Heure :</label></th>
+                    <td><input  name="heurecreneau" type="text" id="heurecreneau" ></td>
                 </tr>
                 <tr>
                     <th><label for="duree">Durée :</label></th>
-                    <td><input type="number" id="duree" ></td>
+                    <td><input name="duree"type="number" id="duree" ></td>
                 </tr>
             </table>
         <input type="submit" id="ajouterCreneau" value="Ajouter ce créneaux">
+        @if ($add != null)
+        <br><label>{{$add}}</label>
+        @endif
     </form>
 </body>
 </html>

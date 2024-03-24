@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Inscription</title>
     <style>
 body {
     display: flex;
@@ -57,28 +57,38 @@ input[type="submit"] {
 }
 
 
+select{
+    width: 300px;
+    height: 30px;
+    margin-bottom: 20px;
+}
 
 </style>
 </head>
 <body>
 
 
-<form action="login" method="post">
+<form action=# method="post">
+    @csrf
     <div>
-        <label for="firstname">Prénom :</label>
-        <input type="text" id="firstname" name="firstname"><br>
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom"><br>
     </div>
     <div>
-        <label for="lastname">Nom :</label>
-        <input type="text" id="lastname" name="lastname"><br>
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom"><br>
     </div>
     <div>
-        <label for="username">Nom d'utilisateur :</label>
-        <input type="text" id="username" name="username"><br>
+        <label for="email">Mail :</label>
+        <input type="text" id="email" name="email"><br>
     </div>
     <div>
-        <label for="classe">Classe :</label>
-        <input type="text" id="classe" name="classe"><br>
+    <label for="classe">Classe :</label>
+        <select name="classe" id="classe">
+        @foreach($classes as $classe)
+        <option value='{{ $classe->id }}'>{{ $classe->nomclasse }}</option>
+        @endforeach
+        </select>
     </div>
     <div>
         <label for="password">Mot de passe :</label>

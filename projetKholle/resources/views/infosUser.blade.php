@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Profil</title>
+    <title>Information sur un utilisateur</title>
     <style>
         body {
             margin: 0;
@@ -85,17 +85,21 @@
             </ul>
         </nav>
     </header>
-    <form action="/modifMdp" method="get">
+    <form action="/changePoste" method="get" >
         @csrf
+        @foreach ($user as $u)
         <label for="labelPrenom">Prénom :</label><br>
-        <input type="text" id="prenom" name="prenom" value="{{ Auth::user()['prenom'] }}"><br>
+        <input type="text" id="prenom" name="prenom" value="{{ $u->prenom }}"><br>
         <label for="labelNom">Nom :</label><br>
-        <input type="text" id="nom" name="nom" value="{{ Auth::user()['nom'] }}"><br>
+        <input type="text" id="nom" name="nom" value="{{ $u->nom }}"><br>
         <label for="labelUtilisateur">Classe :</label><br>
-        <input type="text" id="classe" name="classe" value="{{ $classe }}"><br>
+        <input type="text" id="classe" name="classe" value="{{ $u->nomclasse }}"><br>
         <label for="labelEmail">Adresse mail :</label><br>
-        <input type="email" id="email" name="email" value="{{ Auth::user()['email'] }}"><br>
-        <input type="submit" id="change-mdp" value="Changer mot de passe">
+        <input type="email" id="email" name="email" value="{{ $u->email }}"><br>
+        <label for="labelPoste">Poste :</label><br>
+        <input type="text" id="poste" name="poste" value="{{ $u->nomposte }}"><br>
+        @endforeach
+        <input type="submit" id="changePoste" value="Changer le poste de l'utilisateur">
     </form>
 </body>
 </html>

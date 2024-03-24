@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Profil</title>
+    <title>Changer son mot de passe</title>
     <style>
         body {
             margin: 0;
@@ -80,22 +80,18 @@
 				    <li><a href="/listeCreneauxEtudiant">Voir la liste de créneaux</a></li>
 				    <li><a href="/mesCreneauxEtudiant">Voir mes créneaux</a></li>
 			    </div>
-                <li><a href="#">Mon profil</a></li>
+                <li><a href="/profil">Mon profil</a></li>
                 <li><a href="/logout">Déconnexion</a></li>
             </ul>
         </nav>
     </header>
-    <form action="/modifMdp" method="get">
+    <form action="#" method="post">
         @csrf
-        <label for="labelPrenom">Prénom :</label><br>
-        <input type="text" id="prenom" name="prenom" value="{{ Auth::user()['prenom'] }}"><br>
-        <label for="labelNom">Nom :</label><br>
-        <input type="text" id="nom" name="nom" value="{{ Auth::user()['nom'] }}"><br>
-        <label for="labelUtilisateur">Classe :</label><br>
-        <input type="text" id="classe" name="classe" value="{{ $classe }}"><br>
-        <label for="labelEmail">Adresse mail :</label><br>
-        <input type="email" id="email" name="email" value="{{ Auth::user()['email'] }}"><br>
-        <input type="submit" id="change-mdp" value="Changer mot de passe">
+        <label for="newpassword"></label>Nouveau mot de passe :<br>
+        <input type="text" id="newpassword" name="newpassword"><br>
+        <label for="newpasswordcheck"></label>Confirmer le mot de passe :<br>
+        <input type="text" id="newpasswordcheck" name="newpasswordcheck"><br>
+        <input type="submit" id="change-mdp" value="Confirmer">
     </form>
 </body>
 </html>

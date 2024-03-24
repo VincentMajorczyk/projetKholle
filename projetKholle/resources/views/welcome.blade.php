@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Connexion</title>
     <style>
 body {
     display: flex;
@@ -56,21 +56,41 @@ input[type="submit"] {
     justify-content: center;
 }
 
-
+a{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #333;
+    text-decoration: none;
+}
 
 </style>
 </head>
 <body>
 
 
-<form action="login" method="post">
+<form method="post" action="{{ route('auth.login') }}">
+    @csrf
+
     <h2>Se connecter</h2>
-    <label for="username">Nom d'utilisateur :</label><br>
-    <input type="text" id="username" name="username"><br>
-    <label for="password">Mot de passe :</label><br>
-    <input type="password" id="password" name="password"><br>
-    <input type="submit" value="Se connecter">
+    <div>
+    <label for="email">Mail :</label>
+    <input type="text" id="email" name="email" value="{{ old('email')}}"><br>
+    @error("email")
+    {{ $message }}
+    @enderror
+    </div>
+    <div>
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" name="password" value="{{ old('password')}}"><br>
+    @error("password")
+    {{ $message }}
+    @enderror
+    <div>
+    <input type="submit" value="Se connecter"><br>
+    <a href="/inscription">Vous n'avez pas de compte, inscrivez-vous</a>
 </form>
+
 
 </body>
 </html>
