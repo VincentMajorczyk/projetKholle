@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Profil</title>
+    <title>Modifier un créneau</title>
     <style>
         body {
             margin: 0;
@@ -77,25 +77,35 @@
         <nav>
             <ul>
                 <div class="middle">
+                    <li><a href="/addSalle">Ajouter une salle</a></li>
+                    <li><a href="/addMatiere">Ajouter une matière</a></li>
 				    <li><a href="/listeCreneauxEtudiant">Voir la liste de créneaux</a></li>
 				    <li><a href="/mesCreneauxEtudiant">Voir mes créneaux</a></li>
+                    <li><a href="adminSearchUser">Modifier un utilisateur</a></li>
 			    </div>
                 <li><a href="#">Mon profil</a></li>
                 <li><a href="/logout">Déconnexion</a></li>
             </ul>
         </nav>
     </header>
-    <form action="/modifMdp" method="get">
+    <form action='{{route('updateCreneau')}}' method="post">
         @csrf
-        <label for="labelPrenom">Prénom :</label><br>
-        <input type="text" id="prenom" name="prenom" value="{{ Auth::user()['prenom'] }}" readonly><br>
-        <label for="labelNom">Nom :</label><br>
-        <input type="text" id="nom" name="nom" value="{{ Auth::user()['nom'] }}" readonly><br>
-        <label for="labelUtilisateur">Classe :</label><br>
-        <input type="text" id="classe" name="classe" value="{{ $classe }}" readonly><br>
-        <label for="labelEmail">Adresse mail :</label><br>
-        <input type="email" id="email" name="email" value="{{ Auth::user()['email'] }}" readonly><br>
-        <input type="submit" id="change-mdp" value="Changer mot de passe">
+        @foreach ($creneau as $c)
+        <label for="labelClasse">Classe :</label><br>
+        <input type="hidden" id='id' name='id' value="{{ $c->id}}">
+        <input type="text" id="classe" name="classe" value="{{ $classe }}"><br>
+        <label for="labelDate">Date :</label><br>
+        <input type="text" id="date" name="date" value="{{ $c->datecreneau }}"><br>
+        <label for="labelHeure">Heure :</label><br>
+        <input type="text" id="heure" name="heure" value="{{ $c->heurecreneau }}"><br>
+        <label for="labelSalle">Salle :</label><br>
+        <input type="text" id="salle" name="salle" value="{{ $salle }}"><br>
+        <label for="labelDuree">Durée :</label><br>
+        <input type="text" id="duree" name="duree" value="{{ $c->duree }}"><br>
+        <label for="labelMatiere">Matière :</label><br>
+        <input type="text" id="matiere" name="matiere" value="{{ $matiere }}"><br>
+        @endforeach
+        <input type="submit" id="change-creneau" value="Confirmer le changement">
     </form>
 </body>
 </html>

@@ -77,8 +77,11 @@
         <nav>
             <ul>
                 <div class="middle">
+                    <li><a href="/addSalle">Ajouter une salle</a></li>
+                    <li><a href="/addMatiere">Ajouter une matière</a></li>
 				    <li><a href="/listeCreneauxEtudiant">Voir la liste de créneaux</a></li>
 				    <li><a href="/mesCreneauxEtudiant">Voir mes créneaux</a></li>
+                    <li><a href="adminSearchUser">Modifier un utilisateur</a></li>
 			    </div>
                 <li><a href="#">Mon profil</a></li>
                 <li><a href="/logout">Déconnexion</a></li>
@@ -89,15 +92,15 @@
         @csrf
         @foreach ($user as $u)
         <label for="labelPrenom">Prénom :</label><br>
-        <input type="text" id="prenom" name="prenom" value="{{ $u->prenom }}"><br>
+        <input type="text" id="prenom" name="prenom" value="{{ $u->prenom }}" readonly><br>
         <label for="labelNom">Nom :</label><br>
-        <input type="text" id="nom" name="nom" value="{{ $u->nom }}"><br>
+        <input type="text" id="nom" name="nom" value="{{ $u->nom }}" readonly><br>
         <label for="labelUtilisateur">Classe :</label><br>
-        <input type="text" id="classe" name="classe" value="{{ $u->nomclasse }}"><br>
+        <input type="text" id="classe" name="classe" value="{{ $u->nomclasse }}" readonly><br>
         <label for="labelEmail">Adresse mail :</label><br>
-        <input type="email" id="email" name="email" value="{{ $u->email }}"><br>
+        <input type="email" id="email" name="email" value="{{ $u->email }}" readonly><br>
         <label for="labelPoste">Poste :</label><br>
-        <input type="text" id="poste" name="poste" value="{{ $u->nomposte }}"><br>
+        <input type="text" id="poste" name="poste" value="{{ $u->nomposte }}" readonly><br>
         @endforeach
         <input type="submit" id="changePoste" value="Changer le poste de l'utilisateur">
     </form>

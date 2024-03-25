@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier un utilisateur</title>
+    <title>Rechercher un utilisateur</title>
     <style>
         body {
             margin: 0;
@@ -91,6 +91,8 @@
         <nav>
             <ul>
             <div class="middle">
+                <li><a href="/addSalle">Ajouter une salle</a></li>
+                <li><a href="/addMatiere">Ajouter une matière</a></li>
 				<li><a href="/ajouterCreneau">Créer un nouveau créneau</a></li>
 				<li><a href="/modificationCreneaux">Modifier un créneau</a></li>
                 <li><a href="#">Modifier un utilisateur</a>

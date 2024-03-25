@@ -81,13 +81,13 @@
     </header>
     <form action="#" method="post">
         <label for="labelPrenom">Prénom :</label><br>
-        <input type="text" id="prenom" name="prenom" value="{{ Auth::user()['prenom'] }}"><br>
+        <input type="text" id="prenom" name="prenom" value="{{ Auth::user()['prenom'] }}" readonly><br>
         <label for="labelNom">Nom :</label><br>
-        <input type="text" id="nom" name="nom" value="{{ Auth::user()['nom'] }}"><br>
+        <input type="text" id="nom" name="nom" value="{{ Auth::user()['nom'] }}" readonly><br>
         <label for="labelUtilisateur">Classe :</label><br>
-        <input type="text" id="classe" name="classe" value="{{ $classe }}"><br>
+        <input type="text" id="classe" name="classe" value="{{ $classe }}" readonly><br>
         <label for="labelEmail">Adresse mail :</label><br>
-        <input type="email" id="email" name="email" value="{{ Auth::user()['email'] }}"><br>
+        <input type="email" id="email" name="email" value="{{ Auth::user()['email'] }}" readonly><br>
         <input type="submit" id="change-mdp" value="Changer mot de passe">
     </form>
 </body>

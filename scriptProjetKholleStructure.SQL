@@ -140,47 +140,39 @@ ALTER TABLE USERS
 
 
 INSERT INTO `classes` (`id`, `NOMCLASSE`) VALUES 
-	('1', 'Classe1'),
-	('2', 'Classe2'),
-	('3', 'Classe3'),
-	('4', 'Classe4');
+	(1, 'Espagnol'),
+	(2, 'Anglais'),
+	(3, 'Économie'),
+	(4, 'Interrogation économique'),
+	(5, 'Entretien'),
+	(6, 'Approfondissement méthodologique'),
+	(7, 'Droit privé'),
+	(8, 'Droit public'),
+	(9, 'Histoire des idées politiques (HIP)');
 	
 INSERT INTO `salles` (`id`, `nomsalle`) VALUES 
-	('1', 'Salle1'),
-	('2', 'Salle2'),
-	('3', 'Salle3'),
-	('4', 'Salle4');
+	(1, 'E1'),
+	(2, 'E5'),
+	(3, 'E11'),
+	(4, 'E2'),
+	(5, 'E4'),
+	(6, 'E6'),
+	(7, 'E8'),
+	(8, 'E10'),
+	(9, 'K7'),
+	(10, 'K8'),
+	(11, 'K9'),
+	(12, 'K10'),
+	(13, 'H13'),
+	(14, 'H15');
+	
 	
 	
 INSERT INTO `postes` (`id`, `nomposte`) VALUES 
 	('1', 'étudiant'),
 	('2', 'enseignant'),
 	('3', 'responsable_matière');
-	
-INSERT INTO users VALUES ('1', 'majorczyk', 'Vincent', 'vincent1.majorczyk@gmail.com', '$2y$10$9rcs8DI.KzUs7dsw0xj/6egTbV0GRJzcMYeXEQMN2xCo9yy2A52ie', '1', '2', 0);
 
 INSERT INTO USERS (nom, prenom, email, password, poste, classe, nbkholleinscr) VALUES
-('Doe', 'John', 'john.doe@example.com', '$2y$10$9rcs8DI.KzUs7dsw0xj/6egTbV0GRJzcMYeXEQMN2xCo9yy2A52ie', 1, 1, '0'),
-('Smith', 'Jane', 'jane.smith@example.com', '$2y$10$9rcs8DI.KzUs7dsw0xj/6egTbV0GRJzcMYeXEQMN2xCo9yy2A52ie', 1, 2, '0'),
-('Johnson', 'Alice', 'alice.johnson@example.com', '$2y$10$9rcs8DI.KzUs7dsw0xj/6egTbV0GRJzcMYeXEQMN2xCo9yy2A52ie', 2, 1, '0'),
-('Adam', 'Alice', 'alice.adam@example.com', '$2y$10$9rcs8DI.KzUs7dsw0xj/6egTbV0GRJzcMYeXEQMN2xCo9yy2A52ie', 2, 1, '0');
+('Millaret', 'Hélène', 'hmillaret@gmail.com', '$2y$10$9rcs8DI.KzUs7dsw0xj/6egTbV0GRJzcMYeXEQMN2xCo9yy2A52ie', 3, null, '0');
 
-INSERT INTO MATIERES (id, nommatiere) VALUES
-(1, 'Mathématiques'),
-(2, 'Science'),
-(3, 'Histoire'),
-(4, 'Langues'),
-(5, 'Informatique');
-
-
-
-INSERT INTO CRENEAUS (id_etudiant, id_enseignant, id_classe, datecreneau, heurecreneau, sallecreneau, duree, matiere, complet) VALUES
-(4, 3, 2, '2024-03-25', '09:00:00', '1', 60, 1, 1),
-(2, 3, 2, '2024-03-25', '10:00:00', '2', 60, 2, 1),
-(3, 2, 1, '2024-03-26', '11:00:00', '3', 90, 3, 1);
-
-
-
-INSERT INTO CRENEAUS (id_enseignant, id_classe, datecreneau, heurecreneau, sallecreneau, duree, matiere, complet) VALUES
-(4, 3, '2024-03-26', '11:00:00', '3', 90, 3, 0),
-(2, 4, '2024-03-26', '11:00:00', '3', 90, 3, 0);

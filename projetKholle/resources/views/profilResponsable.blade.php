@@ -77,9 +77,11 @@
         <nav>
             <ul>
                 <div class="middle">
+                    <li><a href="/addSalle">Ajouter une salle</a></li>
+                    <li><a href="/addMatiere">Ajouter une matière</a></li>
 				    <li><a href="ajouterCreneau">Créer un nouveau créneau</a></li>
 				    <li><a href="modificationCreneaux">Modifier un créneau</a></li>
-                    <li><a href="adminSearchUser">Modifier un utilisateur</a>
+                    <li><a href="adminSearchUser">Modifier un utilisateur</a></li>
 			    </div>
                 <li><a href="#">Mon profil</a></li>
                 <li><a href="/logout">Déconnexion</a></li>
@@ -88,13 +90,13 @@
     </header>
     <form action="#" method="post">
         <label for="labelPrenom">Prénom :</label><br>
-        <input type="text" id="prenom" name="prenom" value="{{ Auth::user()['prenom'] }}"><br>
+        <input type="text" id="prenom" name="prenom" value="{{ Auth::user()['prenom'] }}" readonly><br>
         <label for="labelNom">Nom :</label><br>
-        <input type="text" id="nom" name="nom" value="{{ Auth::user()['nom'] }}"><br>
+        <input type="text" id="nom" name="nom" value="{{ Auth::user()['nom'] }}" readonly><br>
         <label for="labelUtilisateur">Classe :</label><br>
-        <input type="text" id="classe" name="classe" value="{{ $classe }}"><br>
+        <input type="text" id="classe" name="classe" value="{{ $classe }}" readonly><br>
         <label for="labelEmail">Adresse mail :</label><br>
-        <input type="email" id="email" name="email" value="{{ Auth::user()['email'] }}"><br>
+        <input type="email" id="email" name="email" value="{{ Auth::user()['email'] }}" readonly><br>
         <input type="submit" id="change-mdp" value="Changer mot de passe">
     </form>
 </body>

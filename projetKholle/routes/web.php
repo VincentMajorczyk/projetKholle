@@ -40,8 +40,14 @@ Route::post('/mesCreneauxEnseignants', [App\Http\Controllers\MesCreneauxProfCont
 
 Route::get('/modificationCreneaux', [\App\Http\Controllers\ModifCreneauController::class, 'index']);
 Route::post('/modificationCreneaux', [\App\Http\Controllers\ModifCreneauController::class, 'lookCreneaux'])->name("regarde");
-Route::post('/modificationCreneauxForm', [\App\Http\Controllers\ModifCreneauController::class, 'modifCreneauForm'])->name("modifCreneauForm");
-Route::get('/modificationCreneauxForm', [\App\Http\Controllers\ModifCreneauController::class, 'modifCreneauFormAff']);
+Route::post('/modificationCreneau', [\App\Http\Controllers\ModifCreneauController::class, 'modifCreneau'])->name("modifCreneau");
+Route::post('/modificationCreneaus', [\App\Http\Controllers\ModifCreneauController::class, 'updateCreneau'])->name("updateCreneau");
+Route::get('/addMatiere', [\App\Http\Controllers\AddMatiereController::class, 'index'])->name("addMatiere");
+Route::post('/addMatiere', [\App\Http\Controllers\AddMatiereController::class, 'addMatiere']);
+Route::get('/addSalle', [\App\Http\Controllers\AddSalleController::class, 'index'])->name("addSalle");
+Route::post('/addSalle', [\App\Http\Controllers\AddSalleController::class, 'addSalle']);
+
+
 
 Route::get('/adminSearchUser', function (){
     return view('adminProfil');
@@ -53,5 +59,6 @@ Route::get('/changePoste', [App\Http\Controllers\InfosUserAdminController::class
 
 Route::post('/changePoste', [App\Http\Controllers\InfosUserAdminController::class, 'changePoste']);
 
-
 Route::get('/logout', [\App\Http\Controllers\ConnexController::class, 'logout']);
+
+

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Créneaux</title>
+    <title>Modifier un créneau</title>
     <style>
         body {
             margin: 0;
@@ -100,17 +100,20 @@
             border: 1px solid #ccc; /* Bordure pour visualiser la zone */
             padding: 20px; /* Espacement intérieur */
             height: 230px;
+            overflow-y: scroll;
         }
     </style>
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <ul>
             <div class="middle">
-				<li><a href="ajouterCreneau">Créer un nouveau créneau</a></li>
-				<li><a href="modificationCreneaux">Modifier un créneau</a></li>
-                <li><a href="adminSearchUser">Modifier un utilisateur</a>
+                <li><a href="/addSalle">Ajouter une salle</a></li>
+                <li><a href="/addMatiere">Ajouter une matière</a></li>
+				<li><a href="/ajouterCreneau">Créer un nouveau créneau</a></li>
+				<li><a href="/modificationCreneaux">Modifier un créneau</a></li>
+                <li><a href="adminSearchUser">Modifier un utilisateur</a></li>
 			</div>
                 <li><a href="/profil">Mon profil</a></li>
                 <li><a href="/logout">Déconnexion</a></li>
@@ -134,7 +137,7 @@
                 </tr>
                 <tr>
                     <th><label for="date">Date :</label></th>
-                    <td><input name="date"type="text" id="date" ></td>
+                    <td><input name="date" placeholder="YYYY-MM-DD" type="text" id="date" ></td>
                 </tr>
                 <tr>
                     <th><label for="matiereChoisie">Matière :</label></th>
@@ -160,34 +163,35 @@
             </div>
         </div>
     </form>
-    <form class="r" method="post" action="{{route('modifCreneauForm')}}">
+    <form class="r" method="post" action="{{route('modifCreneau')}}">
+    @csrf
         <div class="droite">              
             <label for="description">Description du créneau :</label><br><br>
             <table class="input-table">
                 <tr>
                     <th><label for="nomKholleur">Nom du Khôlleur :</label></th>
-                    <td><input name="nomKholleur" type="text" id="nomKholleur" ></td>
-                    <td><input name="idCreneau" type="hidden" id="idCreneau" ></td>
+                    <td><input name="nomKholleur" type="text" id="nomKholleur" readonly></td>
+                    <td><input name="idCreneau" type="hidden" id="idCreneau" readonly></td>
                 </tr>
                 <tr>
                     <th><label for="matiereCreneau">Matière :</label></th>
-                    <td><input name="matiereCreneau" type="text" id="matiereCreneau" ></td>
+                    <td><input name="matiereCreneau" type="text" id="matiereCreneau" readonly></td>
                 </tr>
                 <tr>
                     <th><label for="salleCreneau">Salle :</label></th>
-                    <td><input name="salleCreneau" type="text" id="salleCreneau" ></td>
+                    <td><input name="salleCreneau" type="text" id="salleCreneau" readonly></td>
                 </tr>
                 <tr>
                     <th><label for="dateCreneau">Date :</label></th>
-                    <td><input name="dateCreneau" type="text" id="dateCreneau" ></td>
+                    <td><input name="dateCreneau" type="text" id="dateCreneau" readonly></td>
                 </tr>
                 <tr>
                     <th><label for="heureCreneau">Heure :</label></th>
-                    <td><input name="heureCreneau" type="text" id="heureCreneau" ></td>
+                    <td><input name="heureCreneau" type="text" id="heureCreneau" readonly></td>
                 </tr>
                 <tr>
                     <th><label for="dureeCreneau">Durée :</label></th>
-                    <td><input name="dureeCreneau" type="text" id="dureeCreneau" ></td>
+                    <td><input name="dureeCreneau" type="text" id="dureeCreneau" readonly></td>
                 </tr>
             </table>
             <input type="submit" id="modifierCreneaux" value="Modifier le créneau">

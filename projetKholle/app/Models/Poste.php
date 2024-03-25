@@ -12,4 +12,5 @@ class Poste extends Model
     protected $fillable = [
         'nomposte',
     ];
+    public $timestamps = false;
 }

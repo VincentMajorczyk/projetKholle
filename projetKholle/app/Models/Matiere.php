@@ -12,4 +12,5 @@ class Matiere extends Model
     protected $fillable = [
         'nommatiere',
     ];
+    public $timestamps = false;
 }

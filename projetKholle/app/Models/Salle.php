@@ -12,4 +12,5 @@ class Salle extends Model
     protected $fillable = [
         'nomsalle',
     ];
+    public $timestamps = false;
 }

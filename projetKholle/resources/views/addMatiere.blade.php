@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier un poste</title>
+    <title>Ajouter une matière</title>
     <style>
         body {
             margin: 0;
@@ -61,6 +61,7 @@
         form input[type="submit"] {
             width: auto;
             margin-top: 50px;
+            margin-left: 50px;
             padding: 8px 20px;
             background-color: #ccc;
             color: #fff;
@@ -81,6 +82,8 @@
             transform: translate(-50%, -50%);
         }
 
+
+
     </style>
 </head>
 <body>
@@ -94,7 +97,7 @@
 				<li><a href="/modificationCreneaux">Modifier un créneau</a></li>
                 <li><a href="adminSearchUser">Modifier un utilisateur</a></li>
 			</div>
-                <li><a href="profil">Mon profil</a></li>
+                <li><a href="/profil">Mon profil</a></li>
                 <li><a href="/logout">Déconnexion</a></li>
             </ul>
 			
@@ -104,13 +107,9 @@
     <form method="post">
         @csrf
         <div class="center">
-        <label for="email">Poste :</label><br>
-        <select name="poste" id="poste">
-        @foreach($postes as $poste)
-        <option value='{{ $poste->id }}'>{{ $poste->nomposte }}</option>
-        @endforeach
-        </select><br>
-        <input type="submit" id="changePost" value="Changer son poste">
+        <label for="nomMatiere">Matière :</label>
+        <input type="text" id="nomMatiere" name="nomMatiere"><br>
+        <input type="submit" id="addMatiere" value="Ajouter cette matière">
         </div>
     </form>
 </body>

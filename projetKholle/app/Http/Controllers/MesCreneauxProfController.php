@@ -8,15 +8,18 @@ use Illuminate\Support\Facades\Auth;
 class MesCreneauxProfController extends Controller
 {
     public function index(){
-        $matieres = \App\Models\Matiere::all();
-        $creneaux = null;
-        return view('listeCreneauxEnseignants', ['matieres' => $matieres], ['creneaux' => $creneaux]);
+        if (Auth::check()) {
+            $matieres = \App\Models\Matiere::all();
+            $creneaux = null;
+            return view('listeCreneauxEnseignants', ['matieres' => $matieres], ['creneaux' => $creneaux]);
+        }
     }
 
     public function lookCreneaux(Request $request){
-        $matieres = \App\Models\Matiere::all();
-        $creneaux = Creneau::select('creneaus.*')->where('creneaus.datecreneau', "=", $request->date)->where("id_enseignant", Auth::user()['id'])->where("complet", 1)->where("matiere", $request->matiere)->get();
-        //dd($creneaux, $request->date, Auth::user()['id']);
-        return view('listeCreneauxEnseignants', ['creneaux' => $creneaux], ['matieres' => $matieres]);
+        if (Auth::check()) {
+            $matieres = \App\Models\Matiere::all();
+            $creneaux = Creneau::select('creneaus.*')->where('creneaus.datecreneau', "=", $request->date)->where("id_enseignant", Auth::user()['id'])->where("complet", 1)->where("matiere", $request->matiere)->get();
+            return view('listeCreneauxEnseignants', ['creneaux' => $creneaux], ['matieres' => $matieres]);
+        }
     }
 }
